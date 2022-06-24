@@ -10,8 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WhatsAppClone">
         <activity
+            android:name=".OtpActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
-
             android:exported="false" />
         <activity
             android:name=".LoginActivity"

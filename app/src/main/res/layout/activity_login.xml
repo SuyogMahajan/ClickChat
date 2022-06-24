@@ -8,14 +8,15 @@
     tools:context=".LoginActivity">
 
     <com.hbb20.CountryCodePicker
+        android:id="@+id/CodePicker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/editTextNumber"
-        app:layout_constraintEnd_toStartOf="@+id/editTextNumber"
-        app:layout_constraintTop_toTopOf="@+id/editTextNumber" />
+        app:layout_constraintBottom_toBottomOf="@+id/MobileNumber"
+        app:layout_constraintEnd_toStartOf="@+id/MobileNumber"
+        app:layout_constraintTop_toTopOf="@+id/MobileNumber" />
 
     <EditText
-        android:id="@+id/editTextNumber"
+        android:id="@+id/MobileNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -61,7 +62,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Please Enter your mobile number,you will get a SMS including a verification code :)"
+        android:text="Please enter your mobile number, you will get a sms including verification code :)"
         android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -73,16 +74,17 @@
 
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/materialButton"
+        android:id="@+id/SubmitButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
-        android:paddingHorizontal="20dp"
-        android:text="Submit"
+        android:paddingHorizontal="30dp"
+        android:text="Next"
+        android:enabled="false"
         app:cornerRadius="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumber" />
+        app:layout_constraintTop_toBottomOf="@+id/MobileNumber" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
