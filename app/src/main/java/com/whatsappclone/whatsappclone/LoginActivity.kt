@@ -1,6 +1,7 @@
 package com.whatsappclone.whatsappclone
 
 import android.content.DialogInterface
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
@@ -46,7 +47,9 @@ class LoginActivity : AppCompatActivity() {
 
     private fun notifyUser() {
         MaterialAlertDialogBuilder(this).apply {
-            setMessage("We will be verifying the phone number $phoneNumber. Is it ok ? or you like to edit your Number ?")
+
+            setMessage("We will be verifying the phone number $phoneNumber . Is it ok ? or you like to edit your Number ?")
+
             setPositiveButton("Ok", DialogInterface.OnClickListener { _,_ ->
                 showOtpActivity()
             })
@@ -62,6 +65,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun showOtpActivity() {
-
+       startActivity(Intent(this,OtpActivity::class.java).putExtra(PHONE_NUMBER,phoneNumber))
+       finish()
     }
 }
