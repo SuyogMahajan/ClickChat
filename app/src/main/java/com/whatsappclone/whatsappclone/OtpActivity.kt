@@ -155,9 +155,6 @@ class OtpActivity : AppCompatActivity() {
 
                 mVerificationId = verificationId
                 mResendToken = token
-
-                val credential = PhoneAuthProvider.getCredential(verificationId,)
-
             }
         }
 
