@@ -12,8 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Verify Mobile Number"
-        android:textSize="25dp"
-        android:textStyle="bold"
+        style="@style/Headline"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -65,12 +64,12 @@
         app:layout_constraintVertical_bias="0.029" />
 
     <Button
-        android:id="@+id/SendVeriCodeButton"
+        android:id="@+id/VeriCodeButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
         android:paddingVertical="10dp"
-        android:text="Send Verification Code"
+        android:text="verify code"
         android:textSize="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -91,7 +90,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/SendVeriCodeButton"
+        app:layout_constraintTop_toBottomOf="@+id/VeriCodeButton"
         app:layout_constraintVertical_bias="0.073" />
 
     <EditText

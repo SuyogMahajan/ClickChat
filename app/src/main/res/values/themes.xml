@@ -7,4 +7,26 @@
         <item name="colorAccent">@color/teal_200</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="Headline" >
+        <item name="android:textSize">25dp</item>
+        <item name="android:textColor">@color/green</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="CircleImageView" >
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+
+    </style>
+
+    <style name="SplashTheme" parent="Theme.AppCompat">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowBackground">?attr/colorPrimary</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+    </style>
+
 </resources>

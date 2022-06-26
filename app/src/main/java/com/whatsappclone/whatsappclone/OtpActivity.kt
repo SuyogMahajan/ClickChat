@@ -7,6 +7,7 @@ import android.opengl.Visibility
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.provider.ContactsContract
 import android.text.Spannable
 import android.text.SpannableString
 import android.text.Spanned
@@ -16,26 +17,30 @@ import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
 import android.util.Log
 import android.view.View
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.firebase.FirebaseException
 import com.google.firebase.FirebaseTooManyRequestsException
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthProvider
+import com.google.firebase.ktx.Firebase
 import com.whatsappclone.whatsappclone.databinding.ActivityOtpBinding
 import java.util.concurrent.TimeUnit
 
 const val PHONE_NUMBER = "phone_number"
 
-class OtpActivity : AppCompatActivity() {
+class OtpActivity : AppCompatActivity(),View.OnClickListener {
 
     private lateinit var binding:ActivityOtpBinding
     var phoneNumber:String? = null
+    private lateinit var progressDialog: ProgressDialog
 
     lateinit var callbacks: PhoneAuthProvider.OnVerificationStateChangedCallbacks
 
     var mVerificationId:String? = null
     var mResendToken:PhoneAuthProvider.ForceResendingToken? = null
-
+    var Timer:CountDownTimer? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,17 +59,20 @@ class OtpActivity : AppCompatActivity() {
             phoneNumber!!,60, TimeUnit.SECONDS,this,callbacks
         )
 
+
         setTimerForResend(60000)
+
     }
 
 
     private fun setTimerForResend(milliSec:Long) {
         binding.ResendButton.isEnabled = false
+        binding.CountDownText.visibility = View.VISIBLE
 
-        object:CountDownTimer(milliSec,1000){
+        Timer = object:CountDownTimer(milliSec,1000){
 
             override fun onTick(millisUntilFinished: Long) {
-               binding.CountDownText.text = getString(R.string.count_time,millisUntilFinished/1000)
+                binding.CountDownText.text = getString(R.string.count_time,millisUntilFinished/1000)
             }
 
             override fun onFinish() {
@@ -104,10 +112,14 @@ class OtpActivity : AppCompatActivity() {
 
     }
 
+
     // initiating first line with mobile verify number
     private fun initView() {
         SetSpannableStringToWrongNumber()
         binding.VerifyNumberText.text = getString(R.string.verify_number,phoneNumber)
+
+        binding.VeriCodeButton.setOnClickListener(this)
+        binding.ResendButton.setOnClickListener(this)
 
         callbacks = object : PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
 
@@ -118,15 +130,19 @@ class OtpActivity : AppCompatActivity() {
                 // 2 - Auto-retrieval. On some devices Google Play services can automatically
                 //     detect the incoming verification SMS and perform verification without
                 //     user action.
+
+                if(::progressDialog.isInitialized){
+                    progressDialog.dismiss()
+                }
+
                 val smsOTP = credential.smsCode
                 if(!smsOTP.isNullOrEmpty()){
                     binding.OtpEditText.setText(smsOTP)
-                    Log.d("OTP_Verify",smsOTP)
-                }else{
-                    Log.d("OTP_Verify","Not Working")
                 }
+                       signInWithPhoneAuthCredential(credential)
 
-                //         signInWithPhoneAuthCredential(credential)
+                startActivity(Intent(this@OtpActivity,SignUpActivity::class.java))
+                finish()
             }
 
             override fun onVerificationFailed(e: FirebaseException) {
@@ -160,9 +176,78 @@ class OtpActivity : AppCompatActivity() {
 
     }
 
+    private fun signInWithPhoneAuthCredential(credential: PhoneAuthCredential) {
+           val mAuth = FirebaseAuth.getInstance()
+
+        mAuth.signInWithCredential(credential).addOnCompleteListener{
+            if(it.isSuccessful){
+
+            }else{
+                NotifyByAlertDialogue("Phone Number verification failed !!")
+            }
+        }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+
+        if(Timer != null){
+            Timer!!.cancel()
+        }
+
+    }
+
+    private fun NotifyByAlertDialogue(messege: String){
+        MaterialAlertDialogBuilder(this).apply {
+            setCancelable(false)
+            setMessage(messege)
+            setPositiveButton("Ok"){_,_ ->
+                startActivity(Intent(this@OtpActivity,LoginActivity::class.java))
+            }
+
+            setNegativeButton("Cancel"){ dialogue,_ ->
+                dialogue.dismiss()
+            }
+            create()
+            show()
+        }
+    }
+
+    override fun onClick(v: View?) {
+        when(v!!.id){
+            binding.VeriCodeButton.id -> {
+                val smsCode = binding.OtpEditText.text.toString()
+
+                if(smsCode.isNotEmpty() && !mVerificationId.isNullOrBlank()){
+
+
+
+                    val credential = PhoneAuthProvider.getCredential(mVerificationId!!,smsCode)
+                    signInWithPhoneAuthCredential(credential)
+
+                    startActivity(Intent(this@OtpActivity,SignUpActivity::class.java))
+                    finish()
+                }
+
+            }
+
+            binding.ResendButton.id -> {
+                val smsCode = binding.OtpEditText.text.toString()
+
+                if(smsCode.isNotEmpty() && mResendToken != null){
+
+                    setTimerForResend(60000)
+                    PhoneAuthProvider.getInstance().verifyPhoneNumber(
+                        phoneNumber!!,60, TimeUnit.SECONDS,this,callbacks,mResendToken
+                    )
+
+                }
+
+            }
+        }
+    }
 
 }
-
 
 fun Context.createProgressDialogue(messege:String, isCancellable:Boolean) : ProgressDialog{
     return ProgressDialog(this).apply {
