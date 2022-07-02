@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/whats_app_back"
-    tools:context=".SignUpActivity">
+    tools:context=".ui.actvities.auth.SignUpActivity">
 
     <TextView
         android:id="@+id/textView4"

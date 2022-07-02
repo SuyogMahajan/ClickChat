@@ -1,4 +1,4 @@
-package com.whatsappclone.whatsappclone
+package com.whatsappclone.whatsappclone.ui.actvities.auth
 
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -12,6 +12,8 @@ import com.google.android.gms.tasks.Continuation
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
+import com.whatsappclone.whatsappclone.ui.actvities.MainActivity
+import com.whatsappclone.whatsappclone.data.User
 import com.whatsappclone.whatsappclone.databinding.ActivitySignUpBinding
 
 class SignUpActivity : AppCompatActivity() {
@@ -62,7 +64,7 @@ class SignUpActivity : AppCompatActivity() {
             }else{
                 val user = User(name,downloadUrl,downloadUrl,auth.uid!!)
                 database.collection("users").document(auth.uid!!).set(user).addOnSuccessListener {
-                    startActivity(Intent(this,MainActivity::class.java))
+                    startActivity(Intent(this, MainActivity::class.java))
                     finish()
                 }.addOnFailureListener{
                     binding.NextButton.isEnabled = true

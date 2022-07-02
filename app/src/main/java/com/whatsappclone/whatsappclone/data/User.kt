@@ -1,4 +1,4 @@
-package com.whatsappclone.whatsappclone
+package com.whatsappclone.whatsappclone.data
 
 data class User(
     val name: String,

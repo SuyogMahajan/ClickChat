@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity" >
+    tools:context=".ui.actvities.MainActivity" >
 
 <androidx.appcompat.widget.Toolbar
     android:id="@+id/toolbar"
@@ -24,13 +24,11 @@
         >
 
         <com.google.android.material.tabs.TabItem
-            android:id="@+id/chatTab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Chat" />
 
         <com.google.android.material.tabs.TabItem
-            android:id="@+id/statusTab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Status"
@@ -42,6 +40,7 @@
         android:id="@+id/viewPagerLay"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+
         />
 
 

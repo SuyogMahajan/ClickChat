@@ -1,4 +1,4 @@
-package com.whatsappclone.whatsappclone
+package com.whatsappclone.whatsappclone.ui.actvities.auth
 
 import android.content.DialogInterface
 import android.content.Intent
@@ -38,7 +38,7 @@ class LoginActivity : AppCompatActivity() {
         })
 
         binding.SubmitButton.setOnClickListener {
-            phoneNumber = binding.CodePicker.selectedCountryCodeWithPlus +" "+ binding.MobileNumber.text.toString()
+            phoneNumber = binding.CodePicker.selectedCountryCodeWithPlus + binding.MobileNumber.text.toString()
             notifyUser()
 
         }
@@ -65,7 +65,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun showOtpActivity() {
-       startActivity(Intent(this,OtpActivity::class.java).putExtra(PHONE_NUMBER,phoneNumber))
+       startActivity(Intent(this, OtpActivity::class.java).putExtra(PHONE_NUMBER,phoneNumber))
        finish()
     }
 }

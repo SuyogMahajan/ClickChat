@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WhatsAppClone">
         <activity
-            android:name=".SplashActivity"
+            android:name=".ui.actvities.auth.SplashActivity"
             android:theme="@style/SplashTheme"
             android:exported="true">
             <intent-filter>
@@ -24,16 +24,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SignUpActivity"
+            android:name=".ui.actvities.auth.SignUpActivity"
             android:exported="false" />
         <activity
-            android:name=".OtpActivity"
+            android:name=".ui.actvities.auth.OtpActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.actvities.MainActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".ui.actvities.auth.LoginActivity"
             android:exported="false"/>
     </application>
 

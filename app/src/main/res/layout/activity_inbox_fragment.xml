@@ -11,5 +11,4 @@
         tools:listitem="@layout/list_item"
 />
 
-
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/whats_app_back"
-    tools:context=".LoginActivity">
+    tools:context=".ui.actvities.auth.LoginActivity">
 
     <com.hbb20.CountryCodePicker
         android:id="@+id/CodePicker"

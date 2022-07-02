@@ -1,18 +1,14 @@
-package com.whatsappclone.whatsappclone
+package com.whatsappclone.whatsappclone.ui.actvities.auth
 
 import android.app.ProgressDialog
 import android.content.Context
 import android.content.Intent
-import android.opengl.Visibility
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
-import android.provider.ContactsContract
-import android.text.Spannable
 import android.text.SpannableString
 import android.text.Spanned
 import android.text.TextPaint
-import android.text.format.Time
 import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
 import android.util.Log
@@ -24,7 +20,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthProvider
-import com.google.firebase.ktx.Firebase
+import com.whatsappclone.whatsappclone.R
 import com.whatsappclone.whatsappclone.databinding.ActivityOtpBinding
 import java.util.concurrent.TimeUnit
 
@@ -32,7 +28,7 @@ const val PHONE_NUMBER = "phone_number"
 
 class OtpActivity : AppCompatActivity(),View.OnClickListener {
 
-    private lateinit var binding:ActivityOtpBinding
+    private lateinit var binding: ActivityOtpBinding
     var phoneNumber:String? = null
     private lateinit var progressDialog: ProgressDialog
 
@@ -90,7 +86,7 @@ class OtpActivity : AppCompatActivity(),View.OnClickListener {
 
         val clickableSpan = object : ClickableSpan(){
             override fun onClick(widget: View) {
-                startActivity(Intent(this@OtpActivity,LoginActivity::class.java))
+                startActivity(Intent(this@OtpActivity, LoginActivity::class.java))
                 finish()
             }
 
@@ -141,7 +137,7 @@ class OtpActivity : AppCompatActivity(),View.OnClickListener {
                 }
                        signInWithPhoneAuthCredential(credential)
 
-                startActivity(Intent(this@OtpActivity,SignUpActivity::class.java))
+                startActivity(Intent(this@OtpActivity, SignUpActivity::class.java))
                 finish()
             }
 
@@ -202,7 +198,7 @@ class OtpActivity : AppCompatActivity(),View.OnClickListener {
             setCancelable(false)
             setMessage(messege)
             setPositiveButton("Ok"){_,_ ->
-                startActivity(Intent(this@OtpActivity,LoginActivity::class.java))
+                startActivity(Intent(this@OtpActivity, LoginActivity::class.java))
             }
 
             setNegativeButton("Cancel"){ dialogue,_ ->
@@ -225,7 +221,7 @@ class OtpActivity : AppCompatActivity(),View.OnClickListener {
                     val credential = PhoneAuthProvider.getCredential(mVerificationId!!,smsCode)
                     signInWithPhoneAuthCredential(credential)
 
-                    startActivity(Intent(this@OtpActivity,SignUpActivity::class.java))
+                    startActivity(Intent(this@OtpActivity, SignUpActivity::class.java))
                     finish()
                 }
 
