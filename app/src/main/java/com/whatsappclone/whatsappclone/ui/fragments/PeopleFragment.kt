@@ -1,5 +1,6 @@
 package com.whatsappclone.whatsappclone.ui.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -17,7 +18,7 @@ import com.google.firebase.firestore.Query
 import com.whatsappclone.whatsappclone.R
 import com.whatsappclone.whatsappclone.data.User
 import com.whatsappclone.whatsappclone.databinding.ActivityPeopleFragmentBinding
-import com.whatsappclone.whatsappclone.ui.actvities.UserViewHolder
+import com.whatsappclone.whatsappclone.ui.actvities.*
 
 const val DELETED_VIEW_TYPE = 1
 const val NORMAL_VIEW_TYPE = 2
@@ -88,7 +89,16 @@ class PeopleFragment:Fragment() {
                 override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int, model: User) {
 
                     if(holder is UserViewHolder) {
-                       holder.bind(model)
+                       holder.bind(model) { name:String ,photo:String ,id:String ->
+
+                           val intent = Intent(requireContext(),ChatActivity::class.java)
+
+                           intent.putExtra(UID,id)
+                           intent.putExtra(NAME,name)
+                           intent.putExtra(PHOTO,photo)
+
+                           startActivity(intent)
+                       }
                     }
 
                 }

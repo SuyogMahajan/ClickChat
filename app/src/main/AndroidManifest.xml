@@ -14,9 +14,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WhatsAppClone">
         <activity
+            android:name=".ChatActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.actvities.auth.SplashActivity"
-            android:theme="@style/SplashTheme"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -34,7 +37,7 @@
             android:exported="false" />
         <activity
             android:name=".ui.actvities.auth.LoginActivity"
-            android:exported="false"/>
+            android:exported="false" />
     </application>
 
 </manifest>

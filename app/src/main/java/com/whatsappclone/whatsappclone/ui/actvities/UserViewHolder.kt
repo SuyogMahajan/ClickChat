@@ -7,10 +7,11 @@ import com.squareup.picasso.Picasso
 import com.whatsappclone.whatsappclone.R
 import com.whatsappclone.whatsappclone.data.User
 import com.whatsappclone.whatsappclone.databinding.ListItemBinding
+import kotlinx.coroutines.withContext
 
 class UserViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     private lateinit var binding: ListItemBinding
-    fun bind(user: User) {
+    fun bind(user: User, onClick : (name:String,photo:String,id:String) -> Unit) = with(itemView) {
         binding = ListItemBinding.bind(itemView)
 
         binding.userNameTextView.text = user.name
@@ -23,6 +24,10 @@ class UserViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
             .placeholder(R.drawable.profile_dummy)
             .error(R.drawable.profile_dummy)
             .into(binding.profilePic)
+
+        setOnClickListener {
+            onClick.invoke(user.name,user.thumbImage,user.uid)
+        }
 
     }
 
