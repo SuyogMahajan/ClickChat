@@ -14,8 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WhatsAppClone">
         <activity
-            android:name=".ChatActivity"
+            android:name=".ui.actvities.ChatActivity"
             android:exported="false" />
+
         <activity
             android:name=".ui.actvities.auth.SplashActivity"
             android:exported="true"
@@ -26,6 +27,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".ui.actvities.auth.SignUpActivity"
             android:exported="false" />

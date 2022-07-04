@@ -8,7 +8,7 @@
     android:paddingStart="16dp"
     android:paddingTop="4dp"
     android:paddingEnd="16dp"
-    android:paddingBottom="4dp">
+    android:paddingBottom="4dp" >
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/messageCardView"
@@ -63,6 +63,5 @@
 <!--        android:visibility="gone"-->
 <!--        app:layout_constraintBottom_toBottomOf="parent"-->
 <!--        app:layout_constraintStart_toEndOf="@+id/messageCardView" />-->
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
