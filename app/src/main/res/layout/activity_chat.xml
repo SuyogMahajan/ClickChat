@@ -58,7 +58,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:overScrollMode="ifContentScrolls"
-            tools:itemCount="10" />
+            tools:listitem="@layout/list_item_chat_sent_message"
+           tools:itemCount="10"  />
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
