@@ -6,6 +6,8 @@ import android.util.Log
 import androidx.emoji.bundled.BundledEmojiCompatConfig
 import androidx.emoji.text.EmojiCompat
 import com.squareup.picasso.Picasso
+import com.vanniktech.emoji.EmojiManager
+import com.vanniktech.emoji.google.GoogleEmojiProvider
 import com.whatsappclone.whatsappclone.R
 import com.whatsappclone.whatsappclone.databinding.ActivityChatBinding
 
@@ -22,19 +24,7 @@ class ChatActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
 
-        val emojiConfig = BundledEmojiCompatConfig(this)
-        emojiConfig.setReplaceAll(true)
-            .registerInitCallback(object : EmojiCompat.InitCallback() {
-                override fun onInitialized() {
-                    Log.d("HELLO", "EmojiCompat initialized")
-                }
-
-                override fun onFailed(throwable: Throwable?) {
-                    Log.d("HELLO","EmojiCompat initialization failed $throwable" )
-                }
-            })
-        EmojiCompat.init(emojiConfig)
-
+        EmojiManager.install(GoogleEmojiProvider())
         binding = ActivityChatBinding.inflate(layoutInflater)
 
         setContentView(binding.root)
