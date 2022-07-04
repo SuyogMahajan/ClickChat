@@ -3,8 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Dell/Desktop/AndroidStudioProjects/WhatsAppClone/app/src/main/res/drawable/chat_icon.xml" value="0.1" />
         <entry key="..\:/Users/Dell/Desktop/AndroidStudioProjects/WhatsAppClone/app/src/main/res/drawable/count_circle.xml" value="0.167" />
         <entry key="..\:/Users/Dell/Desktop/AndroidStudioProjects/WhatsAppClone/app/src/main/res/drawable/login_back.xml" value="0.167" />
+        <entry key="..\:/Users/Dell/Desktop/AndroidStudioProjects/WhatsAppClone/app/src/main/res/layout/activity_chat.xml" value="0.6" />
         <entry key="..\:/Users/Dell/Desktop/AndroidStudioProjects/WhatsAppClone/app/src/main/res/layout/activity_inbox_fragment.xml" value="0.25" />
         <entry key="..\:/Users/Dell/Desktop/AndroidStudioProjects/WhatsAppClone/app/src/main/res/layout/activity_login.xml" value="0.264" />
         <entry key="..\:/Users/Dell/Desktop/AndroidStudioProjects/WhatsAppClone/app/src/main/res/layout/activity_main.xml" value="0.25517241379310346" />
