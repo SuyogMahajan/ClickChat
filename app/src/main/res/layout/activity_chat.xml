@@ -101,7 +101,7 @@
                     android:focusable="true"
                     android:src="@drawable/ic_chat_icons_smile" />
 
-                <androidx.emoji.widget.EmojiEditText
+                <com.vanniktech.emoji.EmojiEditText
                     android:id="@+id/msgEdtv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

@@ -1,13 +1,11 @@
 package com.whatsappclone.whatsappclone.ui.actvities
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import androidx.emoji.bundled.BundledEmojiCompatConfig
-import androidx.emoji.text.EmojiCompat
+import androidx.appcompat.app.AppCompatActivity
 import com.squareup.picasso.Picasso
-import com.whatsappclone.whatsappclone.R
 import com.whatsappclone.whatsappclone.databinding.ActivityChatBinding
+import com.vanniktech.emoji.EmojiManager
+import com.vanniktech.emoji.google.GoogleEmojiProvider
 
 const val UID = "uid"
 const val PHOTO = "photo"
@@ -21,19 +19,20 @@ class ChatActivity : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
 
+        EmojiManager.install(GoogleEmojiProvider())
 
-        val emojiConfig = BundledEmojiCompatConfig(this)
-        emojiConfig.setReplaceAll(true)
-            .registerInitCallback(object : EmojiCompat.InitCallback() {
-                override fun onInitialized() {
-                    Log.d("HELLO", "EmojiCompat initialized")
-                }
-
-                override fun onFailed(throwable: Throwable?) {
-                    Log.d("HELLO","EmojiCompat initialization failed $throwable" )
-                }
-            })
-        EmojiCompat.init(emojiConfig)
+//        val emojiConfig = BundledEmojiCompatConfig(this)
+//        emojiConfig.setReplaceAll(true)
+//            .registerInitCallback(object : EmojiCompat.InitCallback() {
+//                override fun onInitialized() {
+//                    Log.d("HELLO", "EmojiCompat initialized")
+//                }
+//
+//                override fun onFailed(throwable: Throwable?) {
+//                    Log.d("HELLO","EmojiCompat initialization failed $throwable" )
+//                }
+//            })
+//        EmojiCompat.init(emojiConfig)
 
         binding = ActivityChatBinding.inflate(layoutInflater)
 
