@@ -1,6 +1,7 @@
 package com.whatsappclone.whatsappclone.ui.actvities
 
 import android.os.Bundle
+import android.os.Message
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
@@ -51,6 +52,30 @@ class ChatActivity : AppCompatActivity() {
 
         binding.nameTv.text = name.toString()
         Picasso.get().load(photo).into(binding.userImgView)
+
+        binding.sendBtn.setOnClickListener {
+            binding.msgEdtv.text?.let{
+                if(it.isNotEmpty()){
+                    sendMessage(it.toString())
+                    it.clear()
+                }
+            }
+        }
+
+    }
+
+    private fun sendMessage(message: String) {
+        val xid = getMessage(id!!).push().key
+
+        checkNotNull(id){ "must not null" }
+
+        val msgMap = com.whatsappclone.whatsappclone.data.Message(message,mCurrentUid,xid!!)
+
+        getMessage(id!!).child(xid!!).setValue(msgMap).addOnSuccessListener {
+
+        }.addOnFailureListener{
+
+        }
 
     }
 
