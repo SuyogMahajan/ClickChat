@@ -5,6 +5,7 @@
     android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/whats_app_back"
     tools:context=".ui.actvities.ChatActivity">
 
     <com.google.android.material.appbar.MaterialToolbar
@@ -23,11 +24,14 @@
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/userImgView"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="41dp"
+            android:layout_height="41dp"
             android:adjustViewBounds="true"
             android:clickable="true"
             android:focusable="true"
+            app:strokeColor="@color/black"
+            app:strokeWidth="2dp"
+            android:padding="1dp"
             android:scaleType="centerCrop"
             android:src="@drawable/profile_dummy"
             app:shapeAppearanceOverlay="@style/CircleImageView" />

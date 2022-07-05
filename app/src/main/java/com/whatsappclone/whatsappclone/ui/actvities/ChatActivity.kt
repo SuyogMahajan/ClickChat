@@ -3,15 +3,22 @@ package com.whatsappclone.whatsappclone.ui.actvities
 import android.os.Bundle
 import android.os.Message
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.*
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import com.squareup.picasso.Picasso
 import com.whatsappclone.whatsappclone.databinding.ActivityChatBinding
 import com.vanniktech.emoji.EmojiManager
 import com.vanniktech.emoji.google.GoogleEmojiProvider
+import com.whatsappclone.whatsappclone.data.ChatEvent
+import com.whatsappclone.whatsappclone.data.DateHeader
+import com.whatsappclone.whatsappclone.data.Inbox
 import com.whatsappclone.whatsappclone.data.User
+import com.whatsappclone.whatsappclone.ui.adapters.ChatAdapter
+import com.whatsappclone.whatsappclone.utils.isSameDayAs
+import java.util.*
 
 const val UID = "uid"
 const val PHOTO = "photo"
@@ -25,6 +32,8 @@ class ChatActivity : AppCompatActivity() {
     private val photo by lazy{ intent.getStringExtra(PHOTO) }
     private val id by lazy{ intent.getStringExtra(UID) }
 
+    private lateinit var chatAdapter: ChatAdapter
+
     private val mCurrentUid:String by lazy{
         FirebaseAuth.getInstance().uid!!
     }
@@ -32,7 +41,7 @@ class ChatActivity : AppCompatActivity() {
     private val db :FirebaseDatabase by lazy{
         FirebaseDatabase.getInstance()
     }
-
+    private val messages: MutableList<ChatEvent> = mutableListOf()
     lateinit var CurrentUser: User
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,12 +52,21 @@ class ChatActivity : AppCompatActivity() {
 
         binding = ActivityChatBinding.inflate(layoutInflater)
 
+        chatAdapter = ChatAdapter(messages,mCurrentUid)
+
         setContentView(binding.root)
 
         FirebaseFirestore.getInstance().collection("users").document(mCurrentUid).get()
             .addOnSuccessListener {
                 CurrentUser = it.toObject(User::class.java)!!
             }
+
+        binding.msgRv.apply {
+            layoutManager = LinearLayoutManager(this@ChatActivity)
+            adapter = chatAdapter
+        }
+
+        listenToMessages()
 
         binding.nameTv.text = name.toString()
         Picasso.get().load(photo).into(binding.userImgView)
@@ -76,6 +94,83 @@ class ChatActivity : AppCompatActivity() {
         }.addOnFailureListener{
 
         }
+
+        updateLastMessage(msgMap)
+
+    }
+
+    fun updateLastMessage(message: com.whatsappclone.whatsappclone.data.Message){
+        val inboxMap = Inbox(message.msg ,id!!,name!!,photo!!, count = 0)
+
+        getInbox(mCurrentUid, id!!).setValue(inboxMap)
+
+        getInbox(id!!, mCurrentUid).addListenerForSingleValueEvent(object :
+            ValueEventListener {
+            override fun onCancelled(p0: DatabaseError) {
+
+            }
+
+            override fun onDataChange(p0: DataSnapshot) {
+                val value = p0.getValue(Inbox::class.java)
+                inboxMap.apply {
+                    from = message.senderId
+                    name = CurrentUser.name
+                    image = CurrentUser.thumbImage
+                    count = 1
+                }
+                if (value?.from == message.senderId) {
+                    inboxMap.count = value.count + 1
+                }
+                getInbox(id!!, mCurrentUid).setValue(inboxMap)
+            }
+
+        })
+
+    }
+
+
+private fun listenToMessages() {
+    getMessage(id!!).orderByKey().addChildEventListener(object : ChildEventListener{
+        override fun onChildAdded(snapshot: DataSnapshot, previousChildName: String?) {
+              val msg = snapshot.getValue(com.whatsappclone.whatsappclone.data.Message::class.java)!!
+
+              addMessage(msg)
+
+        }
+
+        override fun onChildChanged(snapshot: DataSnapshot, previousChildName: String?) {
+        }
+
+        override fun onChildRemoved(snapshot: DataSnapshot) {
+        }
+
+        override fun onChildMoved(snapshot: DataSnapshot, previousChildName: String?) {
+        }
+
+        override fun onCancelled(error: DatabaseError) {
+        }
+
+    })
+}
+
+    private fun addMessage(msg: com.whatsappclone.whatsappclone.data.Message) {
+        val eventBefore = messages.lastOrNull()
+
+        // Add date header if it's a different day
+        if ((eventBefore != null
+                    && !eventBefore.sentAt.isSameDayAs(msg.sentAt))
+            || eventBefore == null
+        ) {
+            messages.add(
+                DateHeader(
+                    msg.sentAt, this
+                )
+            )
+        }
+        messages.add(msg)
+
+        binding.msgRv.adapter!!.notifyItemInserted(messages.size-1)
+        binding.msgRv.scrollToPosition(messages.size-1)
 
     }
 
