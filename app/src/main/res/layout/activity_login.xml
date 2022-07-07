@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/whats_app_back"
     tools:context=".ui.actvities.auth.LoginActivity">
 
     <com.hbb20.CountryCodePicker
@@ -20,7 +19,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-
+        android:background="@drawable/edittext_box"
+        android:paddingVertical="10dp"
+        android:paddingHorizontal="20dp"
+        android:hint="Number goes here"
+        android:elevation="10dp"
         android:inputType="number"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -56,31 +59,32 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.199" />
 
+
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Please enter your mobile number, you will get a sms including verification code :)"
+        android:text="Please enter your mobile number, \n you will get a sms including verification code :)"
         android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.524"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.264" />
-
-
+        app:layout_constraintVertical_bias="0.263" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/SubmitButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
-        android:paddingHorizontal="30dp"
+        android:padding="5dp"
         android:text="Next"
+        android:elevation="10dp"
         android:enabled="false"
         app:cornerRadius="15dp"
+        android:textSize="18dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"

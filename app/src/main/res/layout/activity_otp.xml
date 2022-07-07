@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/whats_app_back"
-    tools:context=".OtpActivity">
+    tools:context=".ui.actvities.auth.OtpActivity">
 
     <TextView
         android:id="@+id/VerifyNumberText"
@@ -94,10 +94,13 @@
         app:layout_constraintVertical_bias="0.073" />
 
     <EditText
+        android:background="@drawable/edittext_box"
         android:id="@+id/OtpEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="13"
+        android:padding="20dp"
+        android:elevation="10dp"
         android:hint="______"
         android:imeActionId="6"
         android:imeActionLabel="send"

@@ -6,7 +6,7 @@
     <path
         android:pathData="M28,28m-27,0a27,27 0,1 1,54 0a27,27 0,1 1,-54 0"
         android:strokeWidth="1"
-        android:fillColor="#6200EE"
+        android:fillColor="@color/green"
         android:strokeColor="#3700B3"
         android:fillType="evenOdd"/>
     <path

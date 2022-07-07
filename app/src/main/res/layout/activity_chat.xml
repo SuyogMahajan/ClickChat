@@ -5,32 +5,32 @@
     android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/whats_app_back"
     tools:context=".ui.actvities.ChatActivity">
 
     <com.google.android.material.appbar.MaterialToolbar
+
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
-        android:elevation="10dp"
-        android:paddingVertical="3dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/edittext_box"
+        android:paddingVertical="5dp"
         android:theme="@style/ThemeOverlay.MaterialComponents.Dark"
         app:contentInsetLeft="0dp"
         app:contentInsetStart="0dp"
         app:contentInsetStartWithNavigation="0dp"
-        app:navigationIcon="?attr/homeAsUpIndicator"
-        app:popupTheme="@style/ThemeOverlay.MaterialComponents.Light">
+        app:navigationIcon="?attr/homeAsUpIndicator">
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/userImgView"
-            android:layout_width="41dp"
-            android:layout_height="41dp"
+            android:layout_width="51dp"
+            android:layout_height="51dp"
             android:adjustViewBounds="true"
             android:clickable="true"
             android:focusable="true"
-            app:strokeColor="@color/black"
-            app:strokeWidth="2dp"
             android:padding="1dp"
             android:scaleType="centerCrop"
             android:src="@drawable/profile_dummy"
@@ -63,6 +63,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:overScrollMode="ifContentScrolls"
+            android:paddingTop="10dp"
             tools:itemCount="10"
             tools:listitem="@layout/list_item_chat_sent_message" />
 
@@ -83,13 +84,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
             android:layout_toStartOf="@id/sendBtn"
             android:elevation="10dp"
 
             app:cardCornerRadius="30dp">
 
             <RelativeLayout
-                android:background="#EDEDED"
+                android:background="#4707002F"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -101,7 +103,6 @@
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="16dp"
                     android:clickable="true"
-                    android:elevation="10dp"
                     android:focusable="true"
                     android:src="@drawable/ic_chat_icons_smile" />
 
@@ -115,7 +116,7 @@
                     android:background="@android:color/transparent"
                     android:gravity="start|center"
 
-                    android:hint="Type your message"
+                    android:hint="Say Hii !!"
                     android:imeOptions="actionGo"
                     android:inputType="textMultiLine|textCapSentences|textLongMessage|text"
                     android:lineSpacingExtra="5dp"
@@ -124,7 +125,7 @@
                     android:paddingTop="14dp"
                     android:paddingBottom="14dp"
                     android:singleLine="false"
-                    android:textColorHint="#b6b6b6"
+                    android:textColorHint="#8D000000"
                     android:textSize="18sp" />
 
             </RelativeLayout>
@@ -133,16 +134,14 @@
 
         <ImageView
             android:id="@+id/sendBtn"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="3dp"
-
+            android:layout_marginStart="-60dp"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:clickable="true"
+            android:elevation="6dp"
             android:focusable="true"
             android:src="@drawable/chat_icon" />
 

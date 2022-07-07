@@ -3,7 +3,7 @@
     <style name="Theme.WhatsAppClone" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/green</item>
-        <item name="colorPrimaryDark">#14665D</item>
+        <item name="colorPrimaryDark">#000000</item>
         <item name="colorAccent">@color/teal_200</item>
         <!-- Customize your theme here. -->
     </style>
@@ -31,8 +31,8 @@
 
     <style name="CustomMediumShapeAppearance">
         <item name="cornerFamily">rounded</item>
-        <item name="cornerSizeTopLeft">22dp</item>
-        <item name="cornerSizeBottomLeft">8dp</item>
+        <item name="cornerSizeTopLeft">0dp</item>
+        <item name="cornerSizeBottomLeft">22dp</item>
         <item name="cornerSizeBottomRight">22dp</item>
         <item name="cornerSizeTopRight">22dp</item>
     </style>
@@ -42,7 +42,7 @@
         <item name="cornerFamily">rounded</item>
         <item name="cornerSizeTopLeft">22dp</item>
         <item name="cornerSizeBottomLeft">22dp</item>
-        <item name="cornerSizeBottomRight">8dp</item>
+        <item name="cornerSizeBottomRight">0dp</item>
         <item name="cornerSizeTopRight">22dp</item>
     </style>
 

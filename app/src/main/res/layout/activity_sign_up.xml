@@ -1,84 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/whats_app_back"
+    android:orientation="vertical"
     tools:context=".ui.actvities.auth.SignUpActivity">
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/headTv"
         style="@style/Headline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Profile Info"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.154" />
+        android:layout_above="@+id/ProfileImage"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp"
+        android:text="Profile Info" />
 
-    <TextView
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Please Add Profile Image and Enter Your Name. \n (avoid too large size of profile image)"
-        android:textSize="15dp"
-        app:layout_constraintBottom_toTopOf="@+id/ProfileImage"
-        app:layout_constraintEnd_toEndOf="@+id/textView4"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="@+id/textView4"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
-        app:layout_constraintVertical_bias="0.366" />
+    <ImageView
+        android:id="@+id/background"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+
+        android:layout_alignParentBottom="true"
+        android:src="@drawable/sign_up_back"
+        />
 
     <com.google.android.material.imageview.ShapeableImageView
 
         android:id="@+id/ProfileImage"
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:clickable="true"
-        android:focusable="true"
-        app:shapeAppearanceOverlay="@style/CircleImageView"
+        android:layout_above="@+id/NameEditText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp"
         android:adjustViewBounds="true"
-        android:scaleType="centerCrop"
-        app:strokeColor="@color/green"
-        app:strokeWidth="3dp"
+        android:clickable="true"
+        android:elevation="20dp"
+        android:focusable="true"
         android:padding="3dp"
+        android:scaleType="centerCrop"
+
         android:src="@drawable/profile_dummy"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
-        app:layout_constraintVertical_bias="0.206" />
+        app:shapeAppearanceOverlay="@style/CircleImageView"
+        app:strokeColor="@color/black"
+        app:strokeWidth="4dp" />
 
     <EditText
         android:id="@+id/NameEditText"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/NextButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/edittext_box"
+        android:elevation="20dp"
         android:ems="10"
         android:gravity="center"
         android:hint="Profile Name"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ProfileImage"
-        app:layout_constraintVertical_bias="0.126" />
+        android:padding="10dp"
+        android:textSize="20dp" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/NextButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Next"
+        android:layout_above="@+id/background"
+        android:layout_centerHorizontal="true"
+        android:elevation="10dp"
         android:enabled="false"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/NameEditText"
-        app:layout_constraintVertical_bias="0.055" />
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="Next"
+        android:textSize="18dp"
+        app:cornerRadius="20dp" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>
