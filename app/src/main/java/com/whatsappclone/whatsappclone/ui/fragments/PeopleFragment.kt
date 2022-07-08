@@ -8,8 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.paging.*
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.firebase.ui.firestore.paging.FirestorePagingAdapter
 import com.firebase.ui.firestore.paging.FirestorePagingOptions
 import com.google.firebase.auth.FirebaseAuth
@@ -19,6 +19,7 @@ import com.whatsappclone.whatsappclone.R
 import com.whatsappclone.whatsappclone.data.User
 import com.whatsappclone.whatsappclone.databinding.ActivityPeopleFragmentBinding
 import com.whatsappclone.whatsappclone.ui.actvities.*
+import com.whatsappclone.whatsappclone.ui.actvities.ViewHolders.UserViewHolder
 
 const val DELETED_VIEW_TYPE = 1
 const val NORMAL_VIEW_TYPE = 2
@@ -29,6 +30,8 @@ class PeopleFragment:Fragment() {
 
     private lateinit var binding:ActivityPeopleFragmentBinding
     lateinit var mAdapter: FirestorePagingAdapter<User,RecyclerView.ViewHolder>
+
+
     val auth by lazy {
         FirebaseAuth.getInstance()
     }
@@ -49,18 +52,7 @@ class PeopleFragment:Fragment() {
         // Inflate the layout for this fragment
         setUpAdapter()
 
-        val s = if(::mAdapter.isInitialized ) "initialized" else "no"
-
-        Log.d("HELLO", " ${mAdapter}")
-
         return binding.root
-    }
-
-    override fun onResume() {
-        super.onResume()
-        setUpAdapter()
-
-        Log.d("HELLO","People")
     }
 
     fun setUpAdapter() {
@@ -72,14 +64,11 @@ class PeopleFragment:Fragment() {
             .setQuery(database,config,User::class.java)
             .build()
 
-
-
-        try {
             mAdapter = object : FirestorePagingAdapter<User, RecyclerView.ViewHolder>(options) {
 
                 override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-                    val view = layoutInflater.inflate(R.layout.list_item, parent, false)
-                    Log.d("HELLO","hitting")
+                    val view = layoutInflater.inflate(R.layout.list_item2, parent, false)
+
                     return when(viewType){
                         NORMAL_VIEW_TYPE -> UserViewHolder(view)
                         else -> EmptyViewHolder(layoutInflater.inflate(R.layout.empty_view,parent,false))
@@ -88,17 +77,17 @@ class PeopleFragment:Fragment() {
 
                 override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int, model: User) {
 
-                    if(holder is UserViewHolder) {
-                       holder.bind(model) { name:String ,photo:String ,id:String ->
+                    if (holder is UserViewHolder) {
+                        holder.bind(model) { name: String, photo: String, id: String ->
 
-                           val intent = Intent(requireContext(),ChatActivity::class.java)
+                            val intent = Intent(requireContext(), ChatActivity::class.java)
 
-                           intent.putExtra(UID,id)
-                           intent.putExtra(NAME,name)
-                           intent.putExtra(PHOTO,photo)
+                            intent.putExtra(UID, id)
+                            intent.putExtra(NAME, name)
+                            intent.putExtra(PHOTO, photo)
 
-                           startActivity(intent)
-                       }
+                            startActivity(intent)
+                        }
                     }
 
                 }
@@ -115,18 +104,17 @@ class PeopleFragment:Fragment() {
                 }
 
             }
-        }catch(e:Exception){
-            Log.d("HELLO?",e.message.toString())
-        }
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         binding.rvPeople.apply {
-            layoutManager = LinearLayoutManager(requireContext())
+            layoutManager = StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL)
             adapter = mAdapter
         }
+
     }
 
 }

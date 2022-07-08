@@ -55,6 +55,7 @@ class ChatActivity : AppCompatActivity() {
         chatAdapter = ChatAdapter(messages,mCurrentUid)
 
         setContentView(binding.root)
+        updateRead()
 
         FirebaseFirestore.getInstance().collection("users").document(mCurrentUid).get()
             .addOnSuccessListener {
@@ -80,6 +81,10 @@ class ChatActivity : AppCompatActivity() {
             }
         }
 
+    }
+
+    private fun updateRead() {
+        getInbox(mCurrentUid,id!!).child("count").setValue(0)
     }
 
     private fun sendMessage(message: String) {

@@ -16,13 +16,12 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
-        android:background="@drawable/edittext_box"
+        android:padding="10dp"
+        android:background="@drawable/box_layout"
+        android:backgroundTint="#423D61"
         android:paddingVertical="5dp"
-        android:theme="@style/ThemeOverlay.MaterialComponents.Dark"
-        app:contentInsetLeft="0dp"
-        app:contentInsetStart="0dp"
-        app:contentInsetStartWithNavigation="0dp"
-        app:navigationIcon="?attr/homeAsUpIndicator">
+        android:theme="@style/ThemeOverlay.MaterialComponents.Light"
+    >
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/userImgView"
@@ -31,7 +30,10 @@
             android:adjustViewBounds="true"
             android:clickable="true"
             android:focusable="true"
+            android:layout_marginStart="20dp"
             android:padding="1dp"
+            app:strokeColor="@color/white"
+            app:strokeWidth="2dp"
             android:scaleType="centerCrop"
             android:src="@drawable/profile_dummy"
             app:shapeAppearanceOverlay="@style/CircleImageView" />
