@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.whatsappclone.whatsappclone">
+    package="com.clickchat.clickchat"
+    >
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -14,11 +15,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WhatsAppClone">
         <activity
-            android:name=".ui.actvities.ChatActivity"
+            android:name="com.clickchat.clickchat.ui.actvities.ChatActivity"
             android:exported="false" />
 
         <activity
-            android:name=".ui.actvities.auth.SplashActivity"
+            android:name="com.clickchat.clickchat.ui.actvities.auth.SplashActivity"
             android:exported="true"
             android:theme="@style/SplashTheme">
             <intent-filter>
@@ -29,16 +30,16 @@
         </activity>
 
         <activity
-            android:name=".ui.actvities.auth.SignUpActivity"
+            android:name="com.clickchat.clickchat.ui.actvities.auth.SignUpActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.actvities.auth.OtpActivity"
+            android:name="com.clickchat.clickchat.ui.actvities.auth.OtpActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.actvities.MainActivity"
+            android:name="com.clickchat.clickchat.ui.actvities.MainActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.actvities.auth.LoginActivity"
+            android:name="com.clickchat.clickchat.ui.actvities.auth.LoginActivity"
             android:exported="false" />
     </application>
 

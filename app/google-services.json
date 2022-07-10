@@ -1,41 +1,41 @@
 {
   "project_info": {
-    "project_number": "468757567992",
-    "project_id": "whatsapp-4d602",
-    "storage_bucket": "whatsapp-4d602.appspot.com"
+    "project_number": "780300782301",
+    "project_id": "clickchat-a08d3",
+    "storage_bucket": "clickchat-a08d3.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:468757567992:android:46dc78d54fceccdc6b1e0d",
+        "mobilesdk_app_id": "1:780300782301:android:02ec88f798a4b56585a934",
         "android_client_info": {
-          "package_name": "com.whatsappclone.whatsappclone"
+          "package_name": "com.clickchat.clickchat"
         }
       },
       "oauth_client": [
         {
-          "client_id": "468757567992-389mnniuep2uu6r0i8m3u1qej22d8d9o.apps.googleusercontent.com",
+          "client_id": "780300782301-ijam085hlorkakofehs4q3gq7vh9pn7p.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.whatsappclone.whatsappclone",
+            "package_name": "com.clickchat.clickchat",
             "certificate_hash": "cdab31609abba994e24bc0735fbd295cc06fecaf"
           }
         },
         {
-          "client_id": "468757567992-k99cabvm5qte6g5eejddouugo50s0dog.apps.googleusercontent.com",
+          "client_id": "780300782301-5ftc4kvvdh0jkrha4akfdk2mi2jojj87.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyARHeiTguxKfT1WoHEWujQA78cJB-A1Hb0"
+          "current_key": "AIzaSyBcJUA_QDy5zLJcDU_R53yoohDPP-uNGgw"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "468757567992-k99cabvm5qte6g5eejddouugo50s0dog.apps.googleusercontent.com",
+              "client_id": "780300782301-5ftc4kvvdh0jkrha4akfdk2mi2jojj87.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
