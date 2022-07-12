@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">WhatsApp Clone</string>
+    <string name="app_name">ClickChat</string>
     <string name="verify_number">Verify %s</string>
     <string name="wrong_number">Waiting to Validate OTP
  Sent to \n %s Wrong Number ?</string>

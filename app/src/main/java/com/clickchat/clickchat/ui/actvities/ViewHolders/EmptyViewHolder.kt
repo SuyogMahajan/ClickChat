@@ -1,4 +1,4 @@
-package com.clickchat.clickchat.ui.fragments
+package com.clickchat.clickchat.ui.actvities.ViewHolders
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView

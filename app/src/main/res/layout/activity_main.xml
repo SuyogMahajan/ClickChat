@@ -1,24 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.actvities.MainActivity" >
+    tools:context=".ui.actvities.MainActivity"
+
+    >
 
 <androidx.appcompat.widget.Toolbar
+
     android:id="@+id/toolbar"
     app:titleTextColor="@color/black"
     app:menu="@menu/toolbar_menu"
     android:layout_marginHorizontal="10dp"
     android:layout_marginTop="10dp"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@color/white"
+    android:layout_height="60dp"
+
     />
 
     <com.google.android.material.tabs.TabLayout
+
         android:id="@+id/tabLay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -32,25 +37,33 @@
         app:tabSelectedTextColor="@color/black"
         app:tabIndicatorGravity="stretch"
         app:tabIndicator="@drawable/indiactor_back"
+
         >
 
         <com.google.android.material.tabs.TabItem
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Chat" />
+            android:text="Chat"
+
+            />
 
         <com.google.android.material.tabs.TabItem
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Status"
+
             />
 
     </com.google.android.material.tabs.TabLayout>
 
     <androidx.viewpager2.widget.ViewPager2
+
         android:id="@+id/viewPagerLay"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+
         />
 
 </androidx.appcompat.widget.LinearLayoutCompat>

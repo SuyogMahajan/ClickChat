@@ -18,6 +18,7 @@ import com.clickchat.clickchat.R
 import com.clickchat.clickchat.data.User
 import com.clickchat.clickchat.databinding.ActivityPeopleFragmentBinding
 import com.clickchat.clickchat.ui.actvities.*
+import com.clickchat.clickchat.ui.actvities.ViewHolders.EmptyViewHolder
 import com.clickchat.clickchat.ui.actvities.ViewHolders.UserViewHolder
 
 const val DELETED_VIEW_TYPE = 1

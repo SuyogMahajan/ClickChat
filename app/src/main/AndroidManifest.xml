@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.clickchat.clickchat"
-    >
+    package="com.clickchat.clickchat">
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -15,11 +14,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WhatsAppClone">
         <activity
-            android:name="com.clickchat.clickchat.ui.actvities.ChatActivity"
+            android:name=".ui.actvities.ProfileActivity"
             android:exported="false" />
-
         <activity
-            android:name="com.clickchat.clickchat.ui.actvities.auth.SplashActivity"
+            android:name=".ui.actvities.ChatActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.actvities.auth.SplashActivity"
             android:exported="true"
             android:theme="@style/SplashTheme">
             <intent-filter>
@@ -28,18 +29,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
-            android:name="com.clickchat.clickchat.ui.actvities.auth.SignUpActivity"
+            android:name=".ui.actvities.auth.SignUpActivity"
             android:exported="false" />
         <activity
-            android:name="com.clickchat.clickchat.ui.actvities.auth.OtpActivity"
+            android:name=".ui.actvities.auth.OtpActivity"
             android:exported="false" />
         <activity
-            android:name="com.clickchat.clickchat.ui.actvities.MainActivity"
+            android:name=".ui.actvities.MainActivity"
             android:exported="false" />
         <activity
-            android:name="com.clickchat.clickchat.ui.actvities.auth.LoginActivity"
+            android:name=".ui.actvities.auth.LoginActivity"
             android:exported="false" />
     </application>
 

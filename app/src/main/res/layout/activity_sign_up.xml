@@ -23,8 +23,7 @@
         android:layout_height="400dp"
 
         android:layout_alignParentBottom="true"
-        android:src="@drawable/sign_up_back"
-        />
+        android:src="@drawable/sign_up_back" />
 
     <com.google.android.material.imageview.ShapeableImageView
 

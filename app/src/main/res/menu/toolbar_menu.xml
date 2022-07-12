@@ -1,19 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+
     >
 
-    <item android:icon="@drawable/ic_search"
-          android:title="Search"
-          app:showAsAction="always"
-        />
-
     <item
-        android:id="@+id/settings"
-        android:title="Settings"
-        android:icon="@drawable/settings_gear"
+        android:id="@+id/search"
+        android:icon="@drawable/ic_search"
+        android:title="Search"
+        app:actionViewClass="androidx.appcompat.widget.SearchView"
         app:showAsAction="always"
+        />
+
+<item android:id="@+id/menu"
+    android:icon="@drawable/settings_gear"
+    android:title="Menu"
+    app:showAsAction="always">
+
+    <menu>
+        <item
+        android:id="@+id/Profile"
+        android:title="Profile"
+        />
+        <item android:id="@+id/clearChat"
+          android:title="Clear chats"
 
         />
+
+        <item android:id="@+id/logOut"
+            android:title="Log Out" />
+
+        <item android:id="@+id/feedback"
+            android:title="Feedback" />
+
+    </menu>
+
+    </item>
 
 </menu>
