@@ -18,6 +18,7 @@
         <entry key="..\:/Users/Dell/Desktop/AndroidStudioProjects/WhatsAppClone/app/src/main/res/drawable/indiactor_back.xml" value="0.1825" />
         <entry key="..\:/Users/Dell/Desktop/AndroidStudioProjects/WhatsAppClone/app/src/main/res/drawable/login_back.xml" value="0.167" />
         <entry key="..\:/Users/Dell/Desktop/AndroidStudioProjects/WhatsAppClone/app/src/main/res/drawable/sign_up_box.xml" value="0.1825" />
+        <entry key="..\:/Users/Dell/Desktop/AndroidStudioProjects/WhatsAppClone/app/src/main/res/font/baloo.xml" value="0.23001282599401454" />
         <entry key="..\:/Users/Dell/Desktop/AndroidStudioProjects/WhatsAppClone/app/src/main/res/layout/activity_chat.xml" value="0.176" />
         <entry key="..\:/Users/Dell/Desktop/AndroidStudioProjects/WhatsAppClone/app/src/main/res/layout/activity_inbox_fragment.xml" value="0.25" />
         <entry key="..\:/Users/Dell/Desktop/AndroidStudioProjects/WhatsAppClone/app/src/main/res/layout/activity_login.xml" value="0.2" />
@@ -26,6 +27,7 @@
         <entry key="..\:/Users/Dell/Desktop/AndroidStudioProjects/WhatsAppClone/app/src/main/res/layout/activity_people_fragment.xml" value="0.2" />
         <entry key="..\:/Users/Dell/Desktop/AndroidStudioProjects/WhatsAppClone/app/src/main/res/layout/activity_profile.xml" value="0.2" />
         <entry key="..\:/Users/Dell/Desktop/AndroidStudioProjects/WhatsAppClone/app/src/main/res/layout/activity_sign_up.xml" value="0.176" />
+        <entry key="..\:/Users/Dell/Desktop/AndroidStudioProjects/WhatsAppClone/app/src/main/res/layout/activity_splash.xml" value="0.176" />
         <entry key="..\:/Users/Dell/Desktop/AndroidStudioProjects/WhatsAppClone/app/src/main/res/layout/activty_inbox_fragment.xml" value="0.25" />
         <entry key="..\:/Users/Dell/Desktop/AndroidStudioProjects/WhatsAppClone/app/src/main/res/layout/empty_view.xml" value="0.25" />
         <entry key="..\:/Users/Dell/Desktop/AndroidStudioProjects/WhatsAppClone/app/src/main/res/layout/list_item.xml" value="0.264" />

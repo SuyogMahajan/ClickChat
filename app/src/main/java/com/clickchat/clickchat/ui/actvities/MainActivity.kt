@@ -116,7 +116,4 @@ class MainActivity : AppCompatActivity() {
         Runtime.getRuntime().exit(0);
 
     }
-
-
-
 }
