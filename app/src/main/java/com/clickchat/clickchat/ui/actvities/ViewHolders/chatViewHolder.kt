@@ -1,5 +1,6 @@
 package com.clickchat.clickchat.ui.actvities.ViewHolders
 
+import android.util.Log
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
@@ -10,8 +11,9 @@ import com.clickchat.clickchat.utils.formatAsTime
 
 class chatViewHolder(var binding: ListItemBinding) : RecyclerView.ViewHolder(binding.root) {
 
-
     fun bind(inbox: Inbox, onClick: (name: String, photo: String, id: String) -> Unit) = with(binding.root) {
+
+        Log.d("HELLO??",inbox.name +" "+inbox.image)
 
             binding.userNameTextView.text = inbox.name
             binding.statusTv.text = inbox.msg
@@ -21,11 +23,11 @@ class chatViewHolder(var binding: ListItemBinding) : RecyclerView.ViewHolder(bin
 
             binding.timeTv.text = inbox.time.formatAsTime()
 
-            Picasso.get()
-                .load(inbox.image)
-                .placeholder(R.drawable.profile_dummy)
-                .error(R.drawable.profile_dummy)
-                .into(binding.profilePic)
+    Picasso.get()
+        .load(inbox.image)
+        .placeholder(R.drawable.profile_dummy)
+        .error(R.drawable.profile_dummy)
+        .into(binding.profilePic)
 
             setOnClickListener {
                 onClick.invoke(inbox.name, inbox.image, inbox.from)

@@ -2,7 +2,7 @@ package com.clickchat.clickchat.data
 
 import java.util.*
 
-class Inbox(
+data class Inbox(
     var msg: String,
     var from: String,
     var name: String,

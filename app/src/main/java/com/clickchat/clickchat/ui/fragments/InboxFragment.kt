@@ -9,10 +9,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.firebase.ui.database.FirebaseRecyclerAdapter
-import com.firebase.ui.database.FirebaseRecyclerOptions
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.FirebaseDatabase
 import com.clickchat.clickchat.data.Inbox
 import com.clickchat.clickchat.databinding.ActivityInboxFragmentBinding
 import com.clickchat.clickchat.databinding.ListItemBinding
@@ -21,6 +17,10 @@ import com.clickchat.clickchat.ui.actvities.NAME
 import com.clickchat.clickchat.ui.actvities.PHOTO
 import com.clickchat.clickchat.ui.actvities.UID
 import com.clickchat.clickchat.ui.actvities.ViewHolders.chatViewHolder
+import com.firebase.ui.database.FirebaseRecyclerAdapter
+import com.firebase.ui.database.FirebaseRecyclerOptions
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
 
 class InboxFragment: Fragment() {
 
@@ -36,10 +36,6 @@ class InboxFragment: Fragment() {
         FirebaseDatabase.getInstance()
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -48,8 +44,6 @@ class InboxFragment: Fragment() {
         binding = ActivityInboxFragmentBinding.inflate(layoutInflater)
         viewManager = LinearLayoutManager(requireContext())
         setUpAdapter()
-
-        // Inflate the layout for this fragment
         return binding.root
 
     }
@@ -66,12 +60,10 @@ class InboxFragment: Fragment() {
         mAdapter = object : FirebaseRecyclerAdapter<Inbox, chatViewHolder>(options) {
 
             override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): chatViewHolder {
-              return chatViewHolder(ListItemBinding.inflate(LayoutInflater.from(context),parent,false))
+              return chatViewHolder(ListItemBinding.inflate(LayoutInflater.from(requireContext()),parent,false))
             }
 
             override fun onBindViewHolder(holder: chatViewHolder, position: Int, model: Inbox) {
-
-                    Log.e("HELLO?",position.toString())
 
                     holder.bind(model) { name: String, photo: String, id: String ->
 
@@ -100,9 +92,18 @@ class InboxFragment: Fragment() {
     }
 
 
-
     override fun onStart() {
         super.onStart()
+        binding.rvInbox.recycledViewPool.clear()
+        mAdapter.notifyDataSetChanged()
+        mAdapter.startListening()
+
+    }
+
+    override fun onResume() {
+        super.onResume()
+        binding.rvInbox.recycledViewPool.clear()
+        mAdapter.notifyDataSetChanged()
         mAdapter.startListening()
     }
 
